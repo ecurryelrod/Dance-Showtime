@@ -11,7 +11,7 @@ User - As Company (and as commenter maybe???)
 
 Performance  * join table joining users and venues???
 - title
-- dates
+- dates/time
 - ticket price
 - link to purchase tickets
 - description
