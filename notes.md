@@ -32,7 +32,9 @@ Venue
 - city
 - state
 - zip?
-- google map link?
+- url
+- covid policy here???
+- google map link???
 - has_many :performances
 - has_many :users, through: :performances
 
