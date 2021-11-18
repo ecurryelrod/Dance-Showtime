@@ -4,11 +4,12 @@ User - As Company (and as commenter maybe???)
 - name
 - email
 - password_digest
-- has_many :performances
+- (as company) has_many :performances
 - has_many :venues, through: :performances
 - (as commenter user) has_many :comments
+- (as commenter user) has_many :performances, through: :comments
 
-Performance
+Performance  * join table joining users and venues???
 - title
 - dates
 - ticket price
@@ -19,7 +20,10 @@ Performance
 - belongs_to :user
 - belongs_to :venue
 - has_many :categories
+    - dance style (category)
+    - family friendly, masks required, other category selections
 - has_many :comments
+- has_many :commenter_users, through: :comments
 
 Venue
 - name
@@ -33,11 +37,10 @@ Venue
 - has_many :users, through: :performances
 
 Category
-- name/type
-- dance style included in category type or make column for it in performance table?????
+- name/title
 - has_many :performances
 
-Comment???
+Comment???  * could be join table joining commentors (users) and performances???
 - content
 - belongs_to :user (commenter)
 - belongs_to :performance
