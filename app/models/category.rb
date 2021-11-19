@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-    has_many :performances
+    has_many :performance_categories
+    has_many :performances, through: :performance_categories
 end
