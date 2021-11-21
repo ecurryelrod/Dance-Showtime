@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_235804) do
+ActiveRecord::Schema.define(version: 2021_11_21_192143) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2021_11_18_235804) do
 
   create_table "performances", force: :cascade do |t|
     t.string "title"
-    t.datetime "date_time", precision: 6
     t.integer "ticket_price"
     t.string "ticket_url"
     t.text "description"
@@ -38,6 +37,9 @@ ActiveRecord::Schema.define(version: 2021_11_18_235804) do
     t.integer "venue_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.time "time"
     t.index ["user_id"], name: "index_performances_on_user_id"
     t.index ["venue_id"], name: "index_performances_on_venue_id"
   end
