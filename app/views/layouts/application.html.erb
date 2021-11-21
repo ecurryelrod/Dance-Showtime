@@ -9,6 +9,11 @@
     <%#= javascript_importmap_tags %>
   </head>
   <%= flash[:error] if flash[:error] %>
+  <%# if flash[:error] %> <!-- Cannot get this to work with session flash error as there is no iteration... -->
+    <%# flash[:error].each do |error| %>
+      <!--div><%#= error %></div-->
+    <%# end %>
+  <%# end %>
   <body>
     <%= yield %>
   </body>
