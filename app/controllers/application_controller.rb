@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     def login_required
         unless logged_in
             flash[:error] = "Please log in to view your profile."
-            redirect_to '/'
+            redirect_to root_path
         end
     end
 end
