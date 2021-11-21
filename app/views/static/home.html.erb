@@ -1,1 +1,7 @@
-<h1>Home Page??? Is this the flow I want???</h1>
+<h1>Home Page - Will display all performances</h1>
+
+<% @performances.each do |performace| %>
+    <div><%= performace.title %></div>
+<% end %>
+
+<%= link_to "Signup", signup_path %> | <%= link_to "Login", login_path %>
