@@ -4,13 +4,12 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
 
   # resources :categories
   # resources :venues
   # resources :performances
   resources :users, only: [:show]
-  resources :sessions, only: [:destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # Almost every application defines a route for the root path ("/") at the top of this file.
