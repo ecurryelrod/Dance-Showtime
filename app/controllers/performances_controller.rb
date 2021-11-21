@@ -25,6 +25,6 @@ class PerformancesController < ApplicationController
     private 
 
     def performance_params
-        params.require(:performance).permit(:title, :date_time, :ticket_price, :ticket_url, :description, :company_url, :user_id, :venue_id)
+        params.require(:performance).permit(:title, :start_date, :end_date, :time, :ticket_price, :ticket_url, :description, :company_url, :user_id, :venue_id)
     end
 end
