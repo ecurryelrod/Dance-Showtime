@@ -7,9 +7,7 @@ class PerformancesController < ApplicationController
 
     def create
         # binding.pry
-        # @performance = Performance.create(performance_params)
         @performance = current_user.performances.build(performance_params)
-        # @performance.build_venue
         if @performance.save
             redirect_to performance_path(@performance)
         else
@@ -24,7 +22,7 @@ class PerformancesController < ApplicationController
     end
 
     def edit
-
+        @performance = Performance.find(params[:id])
     end
 
     def update
