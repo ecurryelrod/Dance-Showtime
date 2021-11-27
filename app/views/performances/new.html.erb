@@ -1,7 +1,6 @@
 <h1>Add an Upcoming Performance</h1>
 
 <%= form_for @performance do |f| %>
-    <%#= f.hidden_field :performance_id, value: @performance.id %>
     <div><strong>Title: </strong><%= f.text_field :title %></div><br>
     <div><strong>Start Date: </strong><%= f.date_select :start_date %></div><br>
     <div><strong>End Date: </strong><%= f.date_select :end_date %></div><br>
