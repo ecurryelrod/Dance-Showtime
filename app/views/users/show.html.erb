@@ -6,7 +6,11 @@
 <br><br>
 <h3>Your Performances</h3>
 <% current_user.performances.each do |performance| %>
-    <div><%= link_to performance.title, performance_path(performance) %></div>
+    <div><%#= link_to performance.title, performance_path(performance) %></div>
+    <div><%#= link_to performance.title, "/users/#{performance.user_id}/performances/#{performance.id}" %></div>
+    <div><%#= link_to performance.title, user_performance_path(performance.user.name, performance.title) %></div>
+    <%# binding.pry %>
+    <div><%= link_to performance.title, user_performance_path(current_user, performance) %></div>
 <% end %>
 <br><br>
 <%#= form_tag logout_path, method: "delete" do %>
