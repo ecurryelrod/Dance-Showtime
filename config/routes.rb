@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # resources :categories
   # resources :venues
   # resources :performances
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :performances, only: [:show]
+  end
   resources :performances, only: [:new, :create, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
