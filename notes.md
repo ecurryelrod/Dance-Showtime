@@ -34,6 +34,7 @@ Venue
 - state
 - zip
 - url
+- phone #
 - covid policy here???
 - google map link???
 - link to venue show page that shows all performancs at selected venue
