@@ -2,9 +2,9 @@
 
 <%= form_for @performance do |f| %>
     <div><strong>Title: </strong><%= f.text_field :title %></div><br>
-    <div><strong>Start Date: </strong><%= f.date_select :start_date %></div><br>
-    <div><strong>End Date: </strong><%= f.date_select :end_date %></div><br>
-    <div><strong>Time: </strong><%= f.time_select :time %></div><br>
+    <div><strong>Start Date: </strong><%= f.date_select :start_date, {include_blank: true} %></div><br>
+    <div><strong>End Date: </strong><%= f.date_select :end_date, {include_blank: true} %></div><br>
+    <div><strong>Time: </strong><%= f.time_select :time, {include_blank: true} %></div><br>
     <div><strong>Price: </strong><%= f.text_field :ticket_price %></div><br>
     <div><strong>Ticket Purchase Link: </strong><%= f.text_field :ticket_url %></div><br>
     <div><strong>Company Website: </strong>Company Website: <%= f.text_field :company_url %></div><br>
