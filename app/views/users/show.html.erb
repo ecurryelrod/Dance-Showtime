@@ -2,7 +2,7 @@
 
 <%#= link_to "Home Page", root_path %>
 
-<%= link_to "Add a New Performance", new_performance_path %>
+<%= link_to "Add a New Performance", new_user_performance_path(current_user) %>
 <br><br>
 <h3>Your Performances</h3>
 <% current_user.performances.each do |performance| %>

@@ -9,7 +9,7 @@ class PerformancesController < ApplicationController
         # binding.pry
         @performance = current_user.performances.build(performance_params)
         if @performance.save
-            redirect_to performance_path(@performance)
+            redirect_to user_performance_path(current_user, @performance)
         else
             flash[:error] = @performance.errors.full_messages
             render :new
