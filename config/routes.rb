@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # resources :categories
-  # resources :venues
+  resources :venues, only: [:show]
   # resources :performances
   resources :users, only: [:show] do
-    resources :performances, only: [:show, :new]
+    resources :performances, only: [:new, :create, :show]
   end
   resources :performances, only: [:new, :create, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
