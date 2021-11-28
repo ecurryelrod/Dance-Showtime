@@ -1,18 +1,18 @@
-<h2>Welcome <%= @user.name %></h1>
-
-<%#= link_to "Home Page", root_path %>
-
-<%= link_to "Add a New Performance", new_user_performance_path(current_user) %>
-<br><br>
-<h3>Your Performances</h3>
-<% current_user.performances.each do |performance| %>
-    <div><%#= link_to performance.title, performance_path(performance) %></div>
-    <div><%#= link_to performance.title, "/users/#{performance.user_id}/performances/#{performance.id}" %></div>
-    <div><%#= link_to performance.title, user_performance_path(performance.user.name, performance.title) %></div>
-    <%# binding.pry %>
-    <div><%= link_to performance.title, user_performance_path(current_user, performance) %></div>
+<% if current_user %>
+    <h2>Welcome <%= current_user.name %></h1>
+    <%= link_to "Add a New Performance", new_user_performance_path(current_user) %>
+<% else %>
+    <h2><%= @user.name %></h2>
 <% end %>
-<br><br>
-<%#= form_tag logout_path, method: "delete" do %>
-    <%#= submit_tag "Logout" %>
-<%# end %>
+
+<h3>Performances</h3>
+<% if !current_user %>
+    <% @user.performances.each do |p| %>
+        <div><%= link_to p.title, performance_path(p) %></div>
+    <% end %>
+<% else %>
+    <% current_user.performances.each do |performance| %>
+        <div><%= link_to performance.title, user_performance_path(current_user, performance) %></div>
+    <% end %>
+<% end %>
+
