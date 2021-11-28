@@ -1,6 +1,4 @@
-<!-- <%#= link_to "Signup", signup_path %> | <%#= link_to "Login", login_path %> (Put this in nav bar and have it change to logout when uesr logged in) -->
-<br><br>
-<% @performances.each do |performace| %>
-    <div><%= performace.title %></div>
+<% @performances.each do |performance| %>
+    <div><%= link_to performance.title, performance_path(performance) %></div>
 <% end %>
 
