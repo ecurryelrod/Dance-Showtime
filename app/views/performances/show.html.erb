@@ -1,6 +1,10 @@
-<h1>Performance Show Page</h1>
+<h1><%= @performance.title %></h1>
 
-Title: <%= @performance.title %><br>
+<% if !current_user %>
+    <h2>Company: <%= @performance.user.name %></h2>
+<% end %>
+
+<!--Title: <%#= @performance.title %><br-->
 Start Date: <%= @performance.start_date %><br>
 End Date:<%= @performance.end_date %><br>
 Show Time: <%= @performance.time %><br>
