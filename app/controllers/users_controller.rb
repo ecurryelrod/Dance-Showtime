@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :login_required, only: [:new, :create, :show]
+    skip_before_action :login_required, only: [:new, :create]
 
     def new
         @user = User.new
@@ -9,17 +9,18 @@ class UsersController < ApplicationController
         user = User.new(user_params)
         if user.save
             session[:user_id] = user.id
-            redirect_to root_path
+            # redirect_to root_path
+            redirect_to user_path(user)
         else
-            flash[:error] = user.errors.full_messages
+            flash[:message] = user.errors.full_messages
             redirect_to signup_path
         end
     end
 
     def show
         # binding.pry
-        # current_user
-        @user = User.find(params[:id])
+        current_user
+        # @user = User.find(params[:id])
     end
 
     private
