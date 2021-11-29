@@ -1,6 +1,14 @@
 class PerformancesController < ApplicationController
     skip_before_action :login_required, only: [:show]
 
+    # def index
+    #     if params[:user_id] # if the route is nested then:
+    #         @performances = current_user.performances
+    #     else # if the route is not nested
+    #         @performances = Performance.all 
+    #     end
+    # end
+
     def new
         @performance = Performance.new
     end

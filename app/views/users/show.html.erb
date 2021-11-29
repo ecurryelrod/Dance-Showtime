@@ -6,13 +6,8 @@
 <% end %>
 
 <h3>Performances</h3>
-<% if !current_user %>
-    <% @user.performances.each do |p| %>
-        <div><%= link_to p.title, performance_path(p) %></div>
-    <% end %>
-<% else %>
-    <% current_user.performances.each do |performance| %>
-        <div><%= link_to performance.title, user_performance_path(current_user, performance) %></div>
-    <% end %>
+<% current_user.performances.each do |performance| %>
+    <div><%= link_to performance.title, user_performance_path(current_user, performance) %></div>
 <% end %>
+
 
