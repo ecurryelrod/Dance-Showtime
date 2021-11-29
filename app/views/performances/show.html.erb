@@ -1,10 +1,9 @@
 <h1><%= @performance.title %></h1>
 
 <% if !current_user %>
-    <h2>Company: <%= link_to @performance.user.name, user_path %></h2>
+    <h2>Company: <%= link_to @performance.user.name, user_path(@performance.user) %></h2>
 <% end %>
 
-<!--Title: <%#= @performance.title %><br-->
 Start Date: <%= @performance.start_date.strftime("%B %e, %Y") %><br>
 <% if @performance.end_date %>
     End Date:<%= @performance.end_date %><br>
@@ -17,8 +16,10 @@ Show Details: <%= @performance.description %><br>
 <br>
 Venue Name: <%= link_to @performance.venue.name, venue_path(@performance.venue) %><br>
 <%= @performance.venue.address_1 %><br>
-<%= @performance.venue.address_2 %><br>
-<%= @performance.venue.city %><br>
-<%= @performance.venue.state %><br>
+<% if @performance.venue.address_2 %>
+    <%= @performance.venue.address_2 %><br>
+<% end %>
+<%= @performance.venue.city %>, 
+<%= @performance.venue.state %>
 <%= @performance.venue.zipcode %><br>
-<%= @performance.venue.venue_url %><br>
+<%= link_to @performance.venue.venue_url, "#{@performance.venue.venue_url}", target: :_blank %><br>

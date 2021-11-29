@@ -1,9 +1,11 @@
 <h2><%= @venue.name %></h2>
 
 <% @venue.performances.each do |p| %>
-    <div><h3><%= link_to p.title, performance_path %></h3></div>
+    <div><h3><%= link_to p.title, performance_path(p) %></h3></div>
     <ul>
-        <li><%= link_to p.user.name, user_path %></li>
+        <% if !current_user %>
+            <li><%= link_to p.user.name, user_path(p.user) %></li>
+        <% end %>
         <li><%= p.start_date.strftime("%B %e") %> @ <%= p.time.strftime("%l:%M %P") %></li>
     </ul>
 <% end %>
