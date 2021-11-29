@@ -1,15 +1,17 @@
-<h1><%= @performance.title %></h1>
+<!--h1><%#= @performance.title %></h1-->
 
-<% if !current_user %>
-    <h2>Company: <%= link_to @performance.user.name, user_path(@performance.user) %></h2>
-<% end %>
-
-Start Date: <%= @performance.start_date.strftime("%B %e, %Y") %><br>
+<%# if !current_user %>
+    <!--h2>Company: <%#= link_to @performance.user.name, user_path(@performance.user) %></h2-->
+<%# end %>
+<h2><%= @performance.user.name %> Presents: <%= @performance.title %></h2>
+<%= @performance.start_date.strftime("%B %e") %>
 <% if @performance.end_date %>
-    End Date:<%= @performance.end_date %><br>
+     - <%= @performance.end_date.strftime("%e") %>
 <% end %>
-Show Time: <%= @performance.time.strftime("%l:%M %P") %><br>
-Price: $<%= @performance.ticket_price %><br>
+@ <%= @performance.time.strftime("%l:%M %P") %>
+<br>
+<!--Show Time: <%#= @performance.time.strftime("%l:%M %P") %><br-->
+$<%= @performance.ticket_price %><br>
 Click to Purchase Tickets: <%= @performance.ticket_url %><br>
 Company Website: <%= @performance.company_url %><br>
 Show Details: <%= @performance.description %><br>
