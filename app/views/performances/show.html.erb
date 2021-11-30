@@ -25,3 +25,7 @@ Venue Name: <%= link_to @performance.venue.name, venue_path(@performance.venue) 
 <%= @performance.venue.state %>
 <%= @performance.venue.zipcode %><br>
 <%= link_to @performance.venue.venue_url, "#{@performance.venue.venue_url}", target: :_blank %><br>
+<br><br>
+<% if current_user %>
+    <%= link_to "Edit", edit_user_performance_path(current_user, @performance) %>
+<% end %>

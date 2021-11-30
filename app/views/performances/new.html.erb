@@ -1,24 +1,3 @@
 <h1>Add an Upcoming Performance</h1>
 
-<%= form_for @performance do |f| %>
-    <div><strong>Title: </strong><%= f.text_field :title %></div><br>
-    <div><strong>Start Date: </strong><%= f.date_select :start_date, {include_blank: true} %></div><br>
-    <div><strong>End Date: </strong><%= f.date_select :end_date, {include_blank: true} %></div><br>
-    <div><strong>Time: </strong><%= f.time_select :time, {include_blank: true} %></div><br>
-    <div><strong>Price: </strong><%= f.text_field :ticket_price %></div><br>
-    <div><strong>Ticket Purchase Link: </strong><%= f.text_field :ticket_url %></div><br>
-    <div><strong>Company Website: </strong>Company Website: <%= f.text_field :company_url %></div><br>
-    <div><strong>Description: </strong><%= f.text_area :description %></div><br>
-    <div><Strong>Select a Venue: </Strong><%= f.collection_select :venue_id, Venue.all, :id, :name, {include_blank: true} %></div><br>
-    <%= f.fields_for :venue, Venue.new do |venue_fields| %>
-        <div><h3>Create a New Venue:</h3></div>
-        <div>Venue Name: <%= venue_fields.text_field :name %></div><br>
-        <div>Address Line 1: <%= venue_fields.text_field :address_1 %></div><br>
-        <div>Address Line 2: <%= venue_fields.text_field :address_2 %></div><br>
-        <div>City: <%= venue_fields.text_field :city %></div><br>
-        <div>State: <%= venue_fields.text_field :state %></div><br>
-        <div>Zip Code: <%= venue_fields.text_field :zipcode %></div><br>
-        <div>Venue Website: <%= venue_fields.text_field :venue_url %></div><br>
-    <% end %>
-    <div><%= f.submit "Add Performance" %></div>
-<% end %>
+<%= render 'form' %>

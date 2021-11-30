@@ -1,7 +1,7 @@
 class PerformancesController < ApplicationController
     skip_before_action :login_required, only: [:show]
 
-    # def index
+    # def index not sure I want an index of performances or not. Will decide later.
     #     if params[:user_id] # if the route is nested then:
     #         @performances = current_user.performances
     #     else # if the route is not nested
@@ -14,18 +14,16 @@ class PerformancesController < ApplicationController
     end
 
     def create
-        # binding.pry
         @performance = current_user.performances.build(performance_params)
         if @performance.save
             redirect_to user_performance_path(current_user, @performance)
         else
-            flash[:error] = @performance.errors.full_messages
+            flash[:message] = @performance.errors.full_messages
             render :new
         end
     end
 
     def show
-        # binding.pry
         @performance = Performance.find(params[:id])
     end
 
@@ -34,7 +32,14 @@ class PerformancesController < ApplicationController
     end
 
     def update
-
+        @performance = Performance.find(params[:id])
+        if @performance.update(performance_params)
+            flash[:message] = "Performance updated successfully"
+            redirect_to user_performance_path(current_user, @performance)
+        else
+            flash[:message] = @performance.errors.full_messages
+            render :edit
+        end
     end
 
     def destroy
