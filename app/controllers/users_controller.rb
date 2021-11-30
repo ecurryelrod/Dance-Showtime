@@ -12,7 +12,7 @@ class UsersController < ApplicationController
             # redirect_to root_path
             redirect_to user_path(user)
         else
-            flash[:message] = user.errors.full_messages
+            flash[:error] = user.errors.full_messages
             redirect_to signup_path
         end
     end

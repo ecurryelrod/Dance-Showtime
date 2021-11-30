@@ -18,8 +18,8 @@ class PerformancesController < ApplicationController
         if @performance.save
             redirect_to user_performance_path(current_user, @performance)
         else
-            flash[:message] = @performance.errors.full_messages
-            render :new
+            flash[:error] = @performance.errors.full_messages
+            redirect_to new_user_performance_path(current_user)
         end
     end
 
@@ -37,8 +37,8 @@ class PerformancesController < ApplicationController
             flash[:message] = "Performance updated successfully"
             redirect_to user_performance_path(current_user, @performance)
         else
-            flash[:message] = @performance.errors.full_messages
-            render :edit
+            flash[:error] = @performance.errors.full_messages
+            redirect_to edit_user_performance_path(current_user, @performance)
         end
     end
 

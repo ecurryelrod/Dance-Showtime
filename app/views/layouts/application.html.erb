@@ -9,11 +9,11 @@
     <%= javascript_importmap_tags %>
   </head>
   <%= flash[:message] if flash[:message] %>
-  <%# if flash[:error] %> <!-- Cannot get this to work with session flash error as there is no iteration... -->
-    <%# flash[:error].each do |error| %>
-      <!--div><%#= error %></div-->
-    <%# end %>
-  <%# end %>
+  <% if flash[:error] %> <!-- Cannot get this to work with session flash error as there is no iteration... -->
+    <% flash[:error].each do |error| %>
+      <div><%= error %></div>
+    <% end %>
+  <% end %>
   <br><br>
   <body>
     <h1>Dance Showtime</h1>
