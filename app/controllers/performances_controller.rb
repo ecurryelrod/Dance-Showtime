@@ -24,7 +24,8 @@ class PerformancesController < ApplicationController
     end
 
     def show
-        @performance = Performance.find(params[:id])
+        @performance = Performance.find_by(id: params[:id])
+        redirect_to root_path if !@performance
     end
 
     def edit
