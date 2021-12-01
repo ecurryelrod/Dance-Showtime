@@ -1,4 +1,4 @@
 <% @performances.each do |performance| %>
-    <div><%= link_to performance.title, performance_path(performance) %></div>
+    <%= render partial: "performances/performance_info", locals: {performance: performance} %>
 <% end %>
 

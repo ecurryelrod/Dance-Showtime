@@ -1,0 +1,4 @@
+<div>
+    <%= link_to performance.title.titleize, user_performance_path(current_user, performance) %> - 
+    <%= performance.start_date.strftime("%B %e") %>
+</div>

@@ -1,9 +1,19 @@
 <h2>Welcome <%= current_user.name %></h1>
 <%= link_to "Add a New Performance", new_user_performance_path(current_user) %>
 
-<h3>Performances</h3>
-<% current_user.performances.each do |performance| %>
-    <div><%= link_to performance.title, user_performance_path(current_user, performance) %></div>
+<br><br>
+
+<h3>Current/Upcoming Performances</h3>
+<% current_user.performances.current_or_upcoming_performances.ordered_by_date.each do |p| %>
+    <%= render partial: "performances/performance_info", locals: {performance: p} %>
 <% end %>
 
+<br>
 
+<div><h3>Past Performances</h3></div> <!-- Can't figure out how to get this to only display if there are past performances -->
+
+<% if current_user.performances.past_performances %>
+    <% current_user.performances.past_performances.ordered_by_date.each do |p| %>
+        <%= render partial: "performances/performance_info", locals: {performance: p} %>
+    <% end %>
+<% end %>
