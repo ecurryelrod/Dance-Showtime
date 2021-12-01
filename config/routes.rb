@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   root 'static#home'
+
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/auth/google_oauth2/callback', to: 'sessions#create'
+
   get '/logout', to: 'sessions#destroy'
   # delete '/logout', to: 'sessions#destroy'
   
+  # get '/auth/google_oauth2/callback', to: 'sessions#google_login'
+  get '/auth/google_oauth2/callback', to: 'sessions#create'
+
 
   # resources :categories
   resources :venues, only: [:show]
