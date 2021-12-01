@@ -1,30 +1,29 @@
-<!--h1><%#= @performance.title %></h1-->
+<!-- create partial for this header? I think it's in this view and venues/show -->
+<h2><%= @performance.user.name.titleize %> Presents: <%= @performance.title.titleize %></h2>
 
-<%# if !current_user %>
-    <!--h2>Company: <%#= link_to @performance.user.name, user_path(@performance.user) %></h2-->
-<%# end %>
-<h2><%= @performance.user.name %> Presents: <%= @performance.title %></h2>
 <%= @performance.start_date.strftime("%B %e") %>
+
 <% if @performance.end_date %>
      - <%= @performance.end_date.strftime("%e") %>
 <% end %>
+
 @ <%= @performance.time.strftime("%l:%M %P") %>
 <br>
-<!--Show Time: <%#= @performance.time.strftime("%l:%M %P") %><br-->
 $<%= @performance.ticket_price %><br>
-Click to Purchase Tickets: <%= @performance.ticket_url %><br>
-Company Website: <%= @performance.company_url %><br>
+<%= link_to "Click here to Purchase Tickets", "#{@performance.ticket_url}", target: :_blank %><br>
+<br>
+Company Website: <%= link_to @performance.company_url, "#{@performance.company_url}", target: :_blank %><br>
 Show Details: <%= @performance.description %><br>
 <br>
-Venue Name: <%= link_to @performance.venue.name, venue_path(@performance.venue) %><br>
-<%= @performance.venue.address_1 %><br>
+Venue Name: <%= link_to @performance.venue.name.titleize, venue_path(@performance.venue) %><br>
+<%= @performance.venue.address_1.titleize %><br>
 <% if @performance.venue.address_2 %>
     <%= @performance.venue.address_2 %><br>
 <% end %>
-<%= @performance.venue.city %>, 
+<%= @performance.venue.city.titleize %>, 
 <%= @performance.venue.state %>
 <%= @performance.venue.zipcode %><br>
-<%= link_to @performance.venue.venue_url, "#{@performance.venue.venue_url}", target: :_blank %><br>
+<%= link_to "Click here for more information about the venue", "#{@performance.venue.venue_url}", target: :_blank %><br>
 <br><br>
 <% if @performance.user == current_user %>
     <%= link_to "Edit", edit_user_performance_path(current_user, @performance) %>
