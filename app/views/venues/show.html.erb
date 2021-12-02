@@ -1,11 +1,8 @@
-<h2><%= @venue.name %></h2>
+<h2><%= @venue.name.titleize %></h2>
 
 <% @venue.performances.each do |p| %>
-    <div><h3><%= p.user.name %> Presents: <%= link_to p.title, performance_path(p) %></h3></div>
+    <div><h3><%= p.user.name.titleize %> Presents: <%= link_to p.title.titleize, performance_path(p) %></h3></div>
     <ul>
-        <%# if !current_user %>
-            <!--li><%#= link_to p.user.name, user_path(p.user) %></li-->
-        <%# end %>
         <li><%= p.start_date.strftime("%B %e") %> @ <%= p.time.strftime("%l:%M %P") %></li>
     </ul>
 <% end %>
