@@ -20,16 +20,16 @@ class SessionsController < ApplicationController
             if @user.try(:authenticate, params[:password])
                 user_saved_redirect
             else
-                flash[:message] = "Incorrect email/password. Try again or create an account."
-                redirect_to login_path
+                # flash[:message] = "Incorrect email/password. Try again or create an account."
+                redirect_to login_path, alert: "Incorrect email/password. Try again or create an account."
             end
         end
     end
 
     def destroy
         session.delete :user_id 
-        flash[:message] = "Successfully Logged Out"
-        redirect_to root_path
+        # flash[:message] = "Successfully Logged Out"
+        redirect_to root_path, alert: "Successfully Logged Out"
     end
 
     private

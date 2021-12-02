@@ -1,20 +1,13 @@
 class PerformancesController < ApplicationController
     skip_before_action :login_required, only: [:show]
 
-    # def index not sure I want an index of performances or not. Will decide later.
-    #     if params[:user_id] # if the route is nested then:
-    #         @performances = current_user.performances
-    #     else # if the route is not nested
-    #         @performances = Performance.all 
-    #     end
-    # end
-
     def new
         @performance = Performance.new
     end
 
     def create
         @performance = current_user.performances.build(performance_params)
+        binding.pry
         if @performance.save
             redirect_to user_performance_path(current_user, @performance)
         else
@@ -35,8 +28,8 @@ class PerformancesController < ApplicationController
     def update
         @performance = Performance.find(params[:id])
         if @performance.update(performance_params)
-            flash[:message] = "Performance updated successfully"
-            redirect_to user_performance_path(current_user, @performance)
+            # flash[:message] = "Performance updated successfully"
+            redirect_to user_performance_path(current_user, @performance), alert: "Performance updated successfully"
         else
             flash[:error] = @performance.errors.full_messages
             redirect_to edit_user_performance_path(current_user, @performance)
