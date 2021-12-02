@@ -7,7 +7,6 @@ class PerformancesController < ApplicationController
 
     def create
         @performance = current_user.performances.build(performance_params)
-        binding.pry
         if @performance.save
             redirect_to user_performance_path(current_user, @performance)
         else
