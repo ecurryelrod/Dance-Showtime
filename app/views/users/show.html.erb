@@ -5,7 +5,11 @@
 
 <h3>Current/Upcoming Performances</h3>
 <% current_user.performances.current_or_upcoming_performances.ordered_by_date.each do |p| %>
-    <%= render partial: "performances/performance_info", locals: {performance: p} %>
+    <div>
+        <%= link_to p.title.titleize, user_performance_path(current_user, p) %>
+         - <%= p.start_date.strftime("%B %e") %> 
+    </div>
+    <%#= render partial: "performances/performance_info", locals: {performance: p, path: user_performance_path(current_user, p)} %>
 <% end %>
 
 <br>
@@ -14,6 +18,10 @@
 
 <% if current_user.performances.past_performances %>
     <% current_user.performances.past_performances.ordered_by_date.each do |p| %>
-        <%= render partial: "performances/performance_info", locals: {performance: p} %>
+        <div>
+            <%= link_to p.title.titleize, user_performance_path(current_user, p) %>
+             - <%= p.start_date.strftime("%B %e") %> 
+        </div>
+        <%#= render partial: "performances/performance_info", locals: {performance: p, path: user_performance_path(current_user, p)} %>
     <% end %>
 <% end %>
