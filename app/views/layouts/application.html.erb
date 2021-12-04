@@ -8,13 +8,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <%= alert if alert %>
+  <!--div id="flash-container"></div-->
+  
   <%= flash[:message] if flash[:message] %>
-  <% if flash[:error] %> <!-- Cannot get this to work with session flash error as there is no iteration... -->
+
+  <% if flash[:error] %> 
     <% flash[:error].each do |error| %>
       <div><%= error %></div>
     <% end %>
   <% end %>
+
   <br><br>
   <body>
     <h1>Dance Showtime</h1>

@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
             if @user.save
                 user_saved_redirect
             else
-                redirect_to login_path
+                # redirect_to login_path
+                render :new
             end
         else
             @user = User.find_by(email: params[:email])
@@ -20,16 +21,17 @@ class SessionsController < ApplicationController
             if @user.try(:authenticate, params[:password])
                 user_saved_redirect
             else
-                # flash[:message] = "Incorrect email/password. Try again or create an account."
-                redirect_to login_path, alert: "Incorrect email/password. Try again or create an account."
+                flash[:message] = "Incorrect email/password. Try again or create an account."
+                # redirect_to login_path
+                render :new
             end
         end
     end
 
     def destroy
         session.delete :user_id 
-        # flash[:message] = "Successfully Logged Out"
-        redirect_to root_path, alert: "Successfully Logged Out"
+        flash[:message] = "Successfully Logged Out"
+        redirect_to root_path
     end
 
     private

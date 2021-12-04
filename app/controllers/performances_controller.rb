@@ -11,7 +11,9 @@ class PerformancesController < ApplicationController
             redirect_to user_performance_path(current_user, @performance)
         else
             flash[:error] = @performance.errors.full_messages
-            redirect_to new_user_performance_path(current_user)
+            # binding.pry
+            # redirect_to new_user_performance_path(current_user)
+            render :new
         end
     end
 
@@ -27,11 +29,12 @@ class PerformancesController < ApplicationController
     def update
         @performance = Performance.find(params[:id])
         if @performance.update(performance_params)
-            # flash[:message] = "Performance updated successfully"
+            flash[:message] = "Performance updated successfully"
             redirect_to user_performance_path(current_user, @performance), alert: "Performance updated successfully"
         else
             flash[:error] = @performance.errors.full_messages
-            redirect_to edit_user_performance_path(current_user, @performance)
+            # redirect_to edit_user_performance_path(current_user, @performance)
+            render :edit
         end
     end
 

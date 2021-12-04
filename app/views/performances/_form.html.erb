@@ -1,5 +1,25 @@
+<%#= form_for @performance do |f| %>
+
+<%# if @performance.errors.any? %>
+  <!--div id="error_explanation">
+    <ul>
+      <%# @performance.errors.each do |error| %>
+        <li><%#= error %></li>
+      <%# end %>
+    </ul>
+  </div>
+<%# end %>
+
+<%# if !flash.empty? %>
+  <%# flash.each do |error, msg| %>
+    <p><%#=msg%></p-->
+  <%# end %>
+<%# end %>
+
 <%= form_for @performance do |f| %>
-    <div><strong>Title: </strong><%= f.text_field :title %></div><br>
+    <div class="field<%= " field_with_errors" if @performance.errors[:title].any? %>"><strong>Title: </strong>
+    <%= f.text_field :title %></div><br>
+    
     <div><strong>Start Date: </strong><%= f.date_field :start_date, {include_blank: true} %></div><br>
     <div><strong>End Date: </strong><%= f.date_field :end_date, {include_blank: true} %></div><br>
     <div><strong>Time: </strong><%= f.time_select :time, {include_blank: true, ampm: true, minute_step: 15} %></div><br>
