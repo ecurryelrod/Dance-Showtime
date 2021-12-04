@@ -1,9 +1,9 @@
 <% @performances.each do |p| %>
-    <!--div>
-        <%#= link_to p.title.titleize, performance_path(p) %>
-         - <%#= p.start_date.strftime("%B %e") %> 
-    </div-->
+    <div>
+        <%= link_to p.title.titleize, performance_path(p) %>
+         - <%= p.start_date.strftime("%B %e") %> 
+    </div>
 
-    <div><%= render partial: "performances/performance_info", locals: {performance: p, path: performance_path(p)} %></div>
+    <!--div><%#= render partial: "performances/performance_info", locals: {performance: p, path: performance_path(p)} %></div-->
 <% end %>
 
