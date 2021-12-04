@@ -16,6 +16,7 @@
   <%# end %>
 <%# end %>
 
+
 <%= form_for @performance do |f| %>
     <div class="field<%= " field_with_errors" if @performance.errors[:title].any? %>"><strong>Title: </strong>
     <%= f.text_field :title %></div><br>

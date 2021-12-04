@@ -1,9 +1,19 @@
 <h1>Create a new account</h1>
 
 <%= form_for @user, url: '/signup' do |f| %>
+<!-- user error messages will not display with rendering the new page if the user isn't saved -->
+    <% if @user.errors.any? %>
+        <% @user.errors.full_messages.each do |error| %>
+        <% binding.pry %>
+            <div><%= error %></div>
+        <% end %>
+    <% end %>
     <div>
         <%= f.label :name %>
         <%= f.text_field :name %>
+        <%# @user.errors.full_messages_for(:name).each do |msg| %>
+            <%#= msg %>
+        <%# end %>
     </div>
     <br>
     <div>

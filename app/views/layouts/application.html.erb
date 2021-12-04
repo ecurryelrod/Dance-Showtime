@@ -9,14 +9,16 @@
     <%= javascript_importmap_tags %>
   </head>
   <!--div id="flash-container"></div-->
-  
+
   <%= flash[:message] if flash[:message] %>
 
-  <% if flash[:error] %> 
-    <% flash[:error].each do |error| %>
-      <div><%= error %></div>
-    <% end %>
-  <% end %>
+<!-- This flash[:error] only displays error messages if that line of code is being called in the users_controller -->
+<!-- When this is commented out the error messages being called within the form are not displaying -->
+  <%# if flash[:error] %> 
+    <%# flash[:error].each do |error| %>
+      <div><%#= error %></div>
+    <%# end %>
+  <%# end %>
 
   <br><br>
   <body>
