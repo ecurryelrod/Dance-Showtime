@@ -1,5 +1,5 @@
 <!-- create partial for this header? I think it's in this view and venues/show -->
-<h2><%= @performance.user.name.titleize %> Presents: <%= @performance.title.titleize %></h2>
+<h2><%= @performance.company_name.titleize %> Presents: <%= @performance.title.titleize %></h2>
 
 <%= @performance.start_date.strftime("%B %e") %>
 
