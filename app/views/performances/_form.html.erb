@@ -1,26 +1,10 @@
-<%#= form_for @performance do |f| %>
-
-<%# if @performance.errors.any? %>
-  <!--div id="error_explanation">
-    <ul>
-      <%# @performance.errors.each do |error| %>
-        <li><%#= error %></li>
-      <%# end %>
-    </ul>
-  </div>
-<%# end %>
-
-<%# if !flash.empty? %>
-  <%# flash.each do |error, msg| %>
-    <p><%#=msg%></p-->
-  <%# end %>
-<%# end %>
-
-
 <%= form_for @performance do |f| %>
-    <div class="field<%= " field_with_errors" if @performance.errors[:title].any? %>"><strong>Title: </strong>
-    <%= f.text_field :title %></div><br>
+
+    <%= render "errors/error", object: @performance %>
+
+    <div class="field<%= " field_with_errors" if @performance.errors[:title].any? %>">
     
+    <div><strong>Title: </strong><%= f.text_field :title %></div><br>
     <div><strong>Start Date: </strong><%= f.date_field :start_date, {include_blank: true} %></div><br>
     <div><strong>End Date: </strong><%= f.date_field :end_date, {include_blank: true} %></div><br>
     <div><strong>Time: </strong><%= f.time_select :time, {include_blank: true, ampm: true, minute_step: 15} %></div><br>
@@ -29,13 +13,14 @@
     <div><strong>Company Website: </strong>Company Website: <%= f.text_field :company_url %></div><br>
     <div><strong>Description: </strong><%= f.text_area :description %></div><br>
     <div><Strong>Select a Venue: </Strong><%= f.collection_select :venue_id, Venue.all, :id, :name, {include_blank: true} %></div><br>
+    <!-- performance input stays with render and error message population but venue input doesn't -->
     <%= f.fields_for :venue, Venue.new do |venue_fields| %>
         <div><h3>Create a New Venue:</h3></div>
         <div>Venue Name: <%= venue_fields.text_field :name %></div><br>
         <div>Address Line 1: <%= venue_fields.text_field :address_1 %></div><br>
         <div>Address Line 2: <%= venue_fields.text_field :address_2 %></div><br>
         <div>City: <%= venue_fields.text_field :city %></div><br>
-        <div>State: <%= venue_fields.select(:state, options_for_select(us_states)) %></div>
+        <div>State: <%= venue_fields.select(:state, options_for_select(us_states)) %></div><br>
         <div>Zip Code: <%= venue_fields.text_field :zipcode %></div><br>
         <div>Venue Website: <%= venue_fields.text_field :venue_url %></div><br>
     <% end %>
