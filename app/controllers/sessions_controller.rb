@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
             if @user.try(:authenticate, params[:password])
                 user_saved_redirect
             else
-                flash[:message] = "Incorrect email/password. Try again or create an account."
+                flash.now[:message] = "Incorrect email/password. Try again or create an account."
                 # redirect_to login_path
                 render :new
             end

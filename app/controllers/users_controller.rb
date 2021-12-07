@@ -12,15 +12,11 @@ class UsersController < ApplicationController
             # redirect_to root_path
             redirect_to user_path(user)
         else
-            # binding.pry
-            flash[:error] = @user.errors.full_messages
-            # redirect_to signup_path
             render :new
         end
     end
 
     def show
-        # binding.pry
         current_user
         # redirect_to root_path if !current_user
     end
