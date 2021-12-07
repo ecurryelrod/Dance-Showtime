@@ -4,24 +4,29 @@
 <br><br>
 
 <h3>Current/Upcoming Performances</h3>
-<% current_user.performances.current_or_upcoming_performances.ordered_by_date.each do |p| %>
-    <div>
-        <%= link_to p.title.titleize, user_performance_path(current_user, p) %>
-         - <%= p.start_date.strftime("%B %e") %> 
-    </div>
-    <%#= render partial: "performances/performance_info", locals: {performance: p, path: user_performance_path(current_user, p)} %>
-<% end %>
+
+<%# current_user.performances.current_or_upcoming_performances.ordered_by_date.each do |p| %>
+    <!--div>
+        <%#= link_to p.title.titleize, user_performance_path(current_user, p) %>
+         - <%#= p.start_date.strftime("%B %e") %> 
+    </div-->
+
+
+    <!-- Nested route no longer working when rendering this collection -->
+    <!-- Can't figure out how to specify dynamic path in _performance partial -->
+    <%= render(current_user.performances.current_or_upcoming_performances.ordered_by_date) || "You have no current or upcoming performances." %>
+<%# end %>
 
 <br>
 
-<div><h3>Past Performances</h3></div> <!-- Can't figure out how to get this to only display if there are past performances -->
+<div><h3>Past Performances</h3></div>
 
-<% if current_user.performances.past_performances %>
-    <% current_user.performances.past_performances.ordered_by_date.each do |p| %>
-        <div>
-            <%= link_to p.title.titleize, user_performance_path(current_user, p) %>
-             - <%= p.start_date.strftime("%B %e") %> 
-        </div>
-        <%#= render partial: "performances/performance_info", locals: {performance: p, path: user_performance_path(current_user, p)} %>
-    <% end %>
-<% end %>
+<%# if current_user.performances.past_performances %>
+    <%# current_user.performances.past_performances.ordered_by_date.each do |p| %>
+        <!--div>
+            <%#= link_to p.title.titleize, user_performance_path(current_user, p) %>
+             - <%#= p.start_date.strftime("%B %e") %> 
+        </div-->
+        <%= render(current_user.performances.past_performances.ordered_by_date) || "You have no past performances" %>
+    <%# end %>
+<%# end %>

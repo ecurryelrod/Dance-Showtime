@@ -10,8 +10,6 @@
   </head>
   <!--div id="flash-container"></div-->
 
-  <%= flash[:message] if flash[:message] %>
-
 <!-- This flash[:error] only displays error messages if that line of code is being called in the users_controller -->
 <!-- When this is commented out the error messages being called within the form are not displaying -->
   <%# if flash[:error] %> 
@@ -20,18 +18,21 @@
     <%# end %>
   <%# end %>
 
-  <br><br>
   <body>
     <h1>Dance Showtime</h1>
-    <%= link_to "Home", root_path %> | 
-    <% if !current_user %>
-      <%= link_to "Signup", signup_path %> | 
-      <%= link_to "Login", login_path %>
-    <% else %>
-      <%= link_to "Profile Page", current_user %> | 
-      <%= link_to "Logout", logout_path %>
-    <% end %>
-    <br><br>
+    <div>
+      <%= link_to "Home", root_path %> | 
+      <% if !current_user %>
+        <%= link_to "Signup", signup_path %> | 
+        <%= link_to "Login", login_path %>
+      <% else %>
+        <%= link_to "Profile Page", current_user %> | 
+        <%= link_to "Logout", logout_path %>
+      <% end %>
+    </div>
+    <br>
+    <div><%= flash[:message] if flash[:message] %></div>
+    <br>
     <%= yield %>
   </body>
 </html>

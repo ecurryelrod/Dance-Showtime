@@ -1,9 +1,11 @@
-<% @performances.each do |p| %>
-    <div>
-        <%= link_to p.title.titleize, performance_path(p) %>
-         - <%= p.start_date.strftime("%B %e") %> 
-    </div>
+<%# @performances.each do |p| %>
+    <!--div>
+        <%#= link_to p.title.titleize, performance_path(p) %>
+         - <%#= p.start_date.strftime("%B %e") %> 
+    </div-->
 
-    <!--div><%#= render partial: "performances/performance_info", locals: {performance: p, path: performance_path(p)} %></div-->
-<% end %>
+<%# end %>
 
+<!-- renders partial in "performances/_performance.html.erb" and iterates over @performances array to display performance info -->
+
+<div><%= render(@performances) %></div-->
