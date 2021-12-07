@@ -3,8 +3,8 @@ class Performance < ApplicationRecord
   belongs_to :venue
   accepts_nested_attributes_for :venue, reject_if: proc {|attr| attr[:name].blank?}
 
-  validates_presence_of :title, :start_date, :time, :ticket_price, :description, :ticket_url, :company_url
-  validates_format_of :ticket_url, :company_url, :with => URI::regexp(%w(http https)) 
+  validates_presence_of :title, :company_name, :start_date, :time, :ticket_price, :description, :ticket_url, :company_url
+  validates_format_of :ticket_url, :company_url, :with => URI::regexp(%w(http https))
 
   # not sure this association working properly. check later
   has_many :performance_categories
