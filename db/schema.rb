@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_192143) do
+ActiveRecord::Schema.define(version: 2021_12_07_230850) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_11_21_192143) do
     t.date "start_date"
     t.date "end_date"
     t.time "time"
+    t.string "company_name"
     t.index ["user_id"], name: "index_performances_on_user_id"
     t.index ["venue_id"], name: "index_performances_on_venue_id"
   end
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_11_21_192143) do
     t.string "address_2"
     t.string "city"
     t.string "state"
-    t.string "zipcode"
+    t.integer "zipcode"
     t.string "venue_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
