@@ -6,4 +6,6 @@ class Venue < ApplicationRecord
     validates_uniqueness_of :name
     validates_format_of :venue_url, :with => URI::regexp(%w(http https)) 
     validates :zipcode, length: {is: 5}
+
+    scope :alpha_order, -> { order('name') }
 end
