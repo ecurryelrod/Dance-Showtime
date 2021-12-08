@@ -1,11 +1,8 @@
-<%# @performances.each do |p| %>
-    <!--div>
-        <%#= link_to p.title.titleize, performance_path(p) %>
-         - <%#= p.start_date.strftime("%B %e") %> 
-    </div-->
-
-<%# end %>
-
 <!-- renders partial in "performances/_performance.html.erb" and iterates over @performances array to display performance info -->
 
-<div><%= render(@performances) %></div-->
+<!-- rendering a collection: -->
+<!-- render(@peformances) is the collection that gets iterated over to display the attributes for each instance set in the _performance partial -->
+<!-- the variable "performance" in the _performance partial is the variable getting passed into the block to display the given attributes on the page -->
+<!-- as long as the collection (plural) is the same name as the variable in the block (singular) and the name of the partial (singular) then rails will recognize the iteration -->
+
+<div><%= render(@performances, nested: false) %></div-->
