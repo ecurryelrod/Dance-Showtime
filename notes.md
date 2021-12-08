@@ -11,6 +11,7 @@ User - As Company (and as commenter maybe???)
 - (as commenter user) has_many :performances, through: :comments
 
 Performance  * join table joining users and venues???
+- image ** stretch goal **
 - title
 - dates/time
 - ticket price
@@ -34,18 +35,18 @@ Venue
 - state
 - zip
 - url
-- phone #
+- phone # ???
 - covid policy here???
 - google map link???
 - link to venue show page that shows all performancs at selected venue
 - has_many :performances
 - has_many :users, through: :performances
 
-Category
+** Stretch Goal: Category
 - name/title
 - has_many :performances
 
-Comment???  * could be join table joining commentors (users) and performances???
+** Stretch Goal: Comment???  * could be join table joining commentors (users) and performances???
 - content
 - belongs_to :user (commenter)
 - belongs_to :performance
