@@ -15,7 +15,7 @@
     <div><strong>Description: </strong><%= f.text_area :description %></div><br>
     <div><Strong>Select a Venue: </Strong><%= f.collection_select :venue_id, Venue.all, :id, :name, {include_blank: true} %></div><br>
     <!-- performance input stays with render and error message population but venue input doesn't -->
-    <%= f.fields_for :venue, Venue.new do |venue_fields| %>
+    <%= f.fields_for :venue, @venue do |venue_fields| %>
         <div><h3>Create a New Venue:</h3></div>
         <div>Venue Name: <%= venue_fields.text_field :name %></div><br>
         <div>Address Line 1: <%= venue_fields.text_field :address_1 %></div><br>

@@ -3,6 +3,7 @@ class PerformancesController < ApplicationController
 
     def new
         @performance = Performance.new
+        @venue = @performance.build_venue
     end
 
     def create
@@ -10,6 +11,7 @@ class PerformancesController < ApplicationController
         if @performance.save
             redirect_to user_performance_path(current_user, @performance)
         else
+            @venue = @performance.venue
             render :new
         end
     end
