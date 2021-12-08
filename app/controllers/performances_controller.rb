@@ -11,7 +11,7 @@ class PerformancesController < ApplicationController
         if @performance.save
             redirect_to user_performance_path(current_user, @performance)
         else
-            @venue = @performance.venue
+            # @venue = @performance.venue
             render :new
         end
     end
