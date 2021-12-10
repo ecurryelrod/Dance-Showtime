@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   
   get '/auth/google_oauth2/callback', to: 'sessions#create'
 
-  resources :venues, only: [:show]
+  resources :venues, only: [:show] do
+    resources :performances, only: [:show]
+  end
 
   resources :users, only: [:show] do
     resources :performances, only: [:new, :create, :show, :edit, :update]

@@ -1,7 +1,7 @@
 <h2><%= @venue.name.titleize %></h2>
 
 <% @venue.performances.each do |p| %>
-    <div><h3><%= p.company_name.titleize %> Presents: <%= link_to p.title.titleize, performance_path(p) %></h3></div>
+    <div><h3><%= p.company_name.titleize %> Presents: <%= link_to p.title.titleize, venue_performance_path(p.venue, p) %></h3></div>
     <ul>
         <li><%= p.start_date.strftime("%B %e") %> @ <%= p.time.strftime("%l:%M %P") %></li>
     </ul>
