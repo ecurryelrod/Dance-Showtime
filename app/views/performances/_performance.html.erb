@@ -1,9 +1,4 @@
-<!-- Do not need to iterate over performances for other views using this partial to display this information, rails automatically knows to iterate through the collection (an array) depending on what's passed into render as an argument -->
-<!-- performance below is the variable that get passed into the below block. -->
-<%# performances.each do |performance| %>
-    <div>
-        <%= link_to performance.title.titleize, nested ? user_performance_path(performance.user, performance) : performance_path(performance) %>
-         - <%= performance.start_date.strftime("%B %e") %> 
-    </div>
-<%# end %>
-<%# end %>
+<div>
+    <%= link_to performance.title.titleize, nested ? user_performance_path(performance.user, performance) : performance_path(performance) %>
+     - <%= performance.start_date.strftime("%B %e") %> 
+</div>

@@ -28,3 +28,5 @@ Venue Name: <%= link_to @performance.venue.name.titleize, venue_path(@performanc
 <% if @performance.user == current_user %>
     <%= link_to "Edit", edit_user_performance_path(current_user, @performance) %>
 <% end %>
+<br><br>
+<%= link_to "Back", :back %>
