@@ -5,8 +5,8 @@ class Performance < ApplicationRecord
 
   validates_presence_of :title, :company_name, :start_date, :time, :ticket_price, :description, :ticket_url, :company_url
   validates_format_of :ticket_url, :company_url, :with => URI::regexp(%w(http https))
+  validates_numericality_of :ticket_price
 
-  # not sure this association working properly. check later
   has_many :performance_categories
   has_many :categories, through: :performance_categories
 
