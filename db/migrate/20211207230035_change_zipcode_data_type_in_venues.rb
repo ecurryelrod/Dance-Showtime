@@ -1,4 +1,4 @@
-class ChangeZipcodeDataTypeInVenues < ActiveRecord::Migration[7.0]
+class ChangeZipcodeDataTypeInVenues < ActiveRecord::Migration[6.1]
   def change
     change_column :venues, :zipcode, :integer
   end

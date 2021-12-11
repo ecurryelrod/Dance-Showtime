@@ -1,4 +1,4 @@
-class CreatePerformanceCategories < ActiveRecord::Migration[7.0]
+class CreatePerformanceCategories < ActiveRecord::Migration[6.1]
   def change
     create_table :performance_categories do |t|
       t.belongs_to :performance, null: false, foreign_key: true
