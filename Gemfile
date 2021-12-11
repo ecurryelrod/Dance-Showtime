@@ -2,9 +2,11 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.0"
+# ruby '2.6.1'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.0.alpha2"
+# gem "rails", "~> 7.0.0.alpha2"
+gem 'rails', '~> 6.1', '>= 6.1.4.1'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
@@ -16,7 +18,7 @@ gem "puma", "~> 5.0"
 gem "importmap-rails", ">= 0.3.4"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-# gem "turbo-rails", ">= 0.7.11"
+gem "turbo-rails", ">= 0.7.11"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails", ">= 0.4.0"
@@ -44,6 +46,8 @@ gem "omniauth-rails_csrf_protection"
 
 # Use Sass to process CSS
 # gem "sassc-rails", "~> 2.1"
+
+gem 'cssbundling-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
