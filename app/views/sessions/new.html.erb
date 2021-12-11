@@ -1,9 +1,11 @@
-<h1>Login</h1>
-
-<%= form_tag do %>
-    Email: <%= email_field_tag :email %>
-    Password: <%= password_field_tag :password %>
-    <%= submit_tag "Login" %>
-<% end %>
-
-<%= link_to "Login witb Google", "/auth/google_oauth2" %>
+<div class="container">
+    <h2>Login</h2>
+    <br>
+    <%= form_tag do %>
+        Email: <%= email_field_tag :email %>
+        Password: <%= password_field_tag :password %>
+        <%= submit_tag "Login" %>
+    <% end %>
+    <br>
+    <%= link_to "Login witb Google", "/auth/google_oauth2" %>
+</div>

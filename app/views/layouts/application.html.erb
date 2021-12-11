@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>DanceShowtime</title>
     <%= csrf_meta_tags %>
@@ -8,31 +8,20 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <!--div id="flash-container"></div-->
-
-<!-- This flash[:error] only displays error messages if that line of code is being called in the users_controller -->
-<!-- When this is commented out the error messages being called within the form are not displaying -->
-  <%# if flash[:error] %> 
-    <%# flash[:error].each do |error| %>
-      <div><%#= error %></div>
-    <%# end %>
-  <%# end %>
 
   <body>
-    <h1>Dance Showtime</h1>
-    <div>
-      <%= link_to "Home", root_path %> | 
-      <% if !current_user %>
-        <%= link_to "Signup", signup_path %> | 
-        <%= link_to "Login", login_path %>
-      <% else %>
-        <%= link_to "Profile Page", current_user %> | 
-        <%= link_to "Logout", logout_path %>
-      <% end %>
+    <%= render 'layouts/navbar' %>
+    <br>
+    <div class="container">
+    <% if flash[:message] %>
+    <div class="alert alert-warning" role="alert">
+      <%= flash[:message] %>
+    </div>
+    <% end %>
     </div>
     <br>
-    <div><%= flash[:message] if flash[:message] %></div>
-    <br>
-    <%= yield %>
+    
+      <%= yield %>
+    
   </body>
 </html>

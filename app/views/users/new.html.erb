@@ -1,37 +1,30 @@
-<h1>Create a new account</h1>
+<div class="container">
+    <h2>Create a new account</h2>
+    <br>
+    <%= form_for @user, url: '/signup' do |f| %>
 
-<%= form_for @user, url: '/signup' do |f| %>
+        <%= render "errors/error", object: @user %>
 
-    <%= render "errors/error", object: @user %>
-    
-    <div>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <%# @user.errors.full_messages_for(:name).each do |msg| %>
-            <%#= msg %>
-        <%# end %>
-    </div>
-    <br>
-    <div>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-        <%# @user.errors.full_messages_for(:email).each do |msg| %>
-            <%#= msg %>
-        <%# end %>
-    </div>
-    <br>
-    <div>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-        <%# @user.errors.full_messages_for(:password).each do |msg| %>
-            <%#= msg %>
-        <%# end %>
-    </div>
-    <br>
-    <div>
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-    </div>
-    <br>
-    <div><%= f.submit "Signup" %></div>
-<% end %>
+        <div>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+        <br>
+        <div>
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+        </div>
+        <br>
+        <div>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>
+        <br>
+        <div>
+            <%= f.label :password_confirmation, "Confirm Password" %>
+            <%= f.password_field :password_confirmation %>
+        </div>
+        <br>
+        <div><%= f.submit "Signup" %></div>
+    <% end %>
+</div>

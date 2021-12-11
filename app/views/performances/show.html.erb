@@ -1,32 +1,33 @@
-<!-- create partial for this header? I think it's in this view and venues/show -->
-<h2><%= @performance.company_name.titleize %> Presents: <%= @performance.title.titleize %></h2>
+<div class="container">
+    <h2><%= @performance.company_name.titleize %> Presents: <%= @performance.title.titleize %></h2>
 
-<%= @performance.start_date.strftime("%B %e") %>
+    <%= @performance.start_date.strftime("%B %e") %>
 
-<% if @performance.end_date %>
+    <% if @performance.end_date %>
      - <%= @performance.end_date.strftime("%e") %>
-<% end %>
+    <% end %>
 
-@ <%= @performance.time.strftime("%l:%M %P") %>
-<br>
-$<%= @performance.ticket_price %><br>
-<%= link_to "Click here to Purchase Tickets", "#{@performance.ticket_url}", target: :_blank %><br>
-<br>
-Company Website: <%= link_to @performance.company_url, "#{@performance.company_url}", target: :_blank %><br>
-Show Details: <%= @performance.description %><br>
-<br>
-Venue Name: <%= link_to @performance.venue.name.titleize, venue_path(@performance.venue) %><br>
-<%= @performance.venue.address_1.titleize %><br>
-<% if @performance.venue.address_2 %>
-    <%= @performance.venue.address_2 %><br>
-<% end %>
-<%= @performance.venue.city.titleize %>, 
-<%= @performance.venue.state %>
-<%= @performance.venue.zipcode %><br>
-<%= link_to "Click here for more information about the venue", "#{@performance.venue.venue_url}", target: :_blank %><br>
-<br><br>
-<% if @performance.user == current_user %>
-    <%= link_to "Edit", edit_user_performance_path(current_user, @performance) %>
-<% end %>
-<br><br>
-<%= link_to "Back", :back %>
+    @ <%= @performance.time.strftime("%l:%M %P") %>
+    <br>
+    $<%= @performance.ticket_price %><br>
+    <%= link_to "Click here to Purchase Tickets", "#{@performance.ticket_url}", target: :_blank %><br>
+    <br>
+    Company Website: <%= link_to @performance.company_url, "#{@performance.company_url}", target: :_blank %><br>
+    Show Details: <%= @performance.description %><br>
+    <br>
+    Venue Name: <%= link_to @performance.venue.name.titleize, venue_path(@performance.venue) %><br>
+    <%= @performance.venue.address_1.titleize %><br>
+    <% if @performance.venue.address_2 %>
+        <%= @performance.venue.address_2 %><br>
+    <% end %>
+    <%= @performance.venue.city.titleize %>, 
+    <%= @performance.venue.state %>
+    <%= @performance.venue.zipcode %><br>
+    <%= link_to "Click here for more information about the venue", "#{@performance.venue.venue_url}", target: :_blank %><br>
+    <br><br>
+    <% if @performance.user == current_user %>
+        <%= link_to "Edit", edit_user_performance_path(current_user, @performance) %>
+    <% end %>
+    <br><br>
+    <%= link_to "Back", :back %>
+</div>
