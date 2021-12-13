@@ -1,8 +1,6 @@
 <%= form_for @performance do |f| %>
 
     <%= render "errors/error", object: @performance %>
-
-    <!--div class="field<%#= " field_with_errors" if @performance.errors[:title].any? %>"-->
     
     <div><strong>Title: </strong><%= f.text_field :title %></div><br>
     <div><strong>Company Name: </strong><%= f.text_field :company_name %></div><br>
