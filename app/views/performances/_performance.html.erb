@@ -1,4 +1,7 @@
 <div>
     <%= link_to performance.title.titleize, nested ? user_performance_path(performance.user, performance) : performance_path(performance) %>
-     - <%= performance.start_date.strftime("%B %e") %> 
+    : <%= performance.start_date.strftime("%B %e") %> 
+    <% if performance.end_date %>
+     - <%= performance.end_date.strftime("%B %e") %>
+    <% end %>
 </div>
