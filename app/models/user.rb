@@ -5,4 +5,6 @@ class User < ApplicationRecord
 
     has_many :performances
     has_many :venues, through: :performances
+
+    scope :alpha, -> { order('name')}
 end

@@ -19,6 +19,11 @@ class UsersController < ApplicationController
         current_user
     end
 
+    # show_users was added during live coding session of review
+    def show_users
+        @users = User.all.alpha
+    end
+
     private
 
     def user_params
