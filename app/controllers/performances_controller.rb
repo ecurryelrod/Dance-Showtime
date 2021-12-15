@@ -17,7 +17,7 @@ class PerformancesController < ApplicationController
     end
 
     def show
-        @performance = Performance.find_by(id: params[:id])
+        @performance = Performance.find(params[:id])
         redirect_to root_path if !@performance
     end
 
@@ -35,9 +35,13 @@ class PerformancesController < ApplicationController
         end
     end
 
-    def destroy
-
-    end
+    # def destroy
+    #     # binding.pry
+    #     @performance = Performance.find(params[:id])
+    #     @performance.delete
+    #     flash[:message] = "Performance deleted"
+    #     redirect_to user_path(current_user)
+    # end
 
     private 
 

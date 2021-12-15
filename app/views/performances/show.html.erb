@@ -27,6 +27,7 @@
     <br><br>
     <% if @performance.user == current_user %>
         <%= link_to "Edit", edit_user_performance_path(current_user, @performance) %>
+        <%#= link_to "Delete", user_performance_path(@performance.user, @performance), method: :delete %>
     <% end %>
     <br><br>
     <%= link_to "Back", :back %>

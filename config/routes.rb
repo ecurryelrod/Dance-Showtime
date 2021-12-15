@@ -11,15 +11,18 @@ Rails.application.routes.draw do
   
   get '/auth/google_oauth2/callback', to: 'sessions#create'
 
+  # this route added during live coding session of review
+  get '/show_users', to: 'users#show_users'
+
   resources :venues, only: [:show] do
     resources :performances, only: [:show]
   end
 
   resources :users, only: [:show] do
-    resources :performances, only: [:new, :create, :show, :edit, :update]
+    resources :performances#, only: [:new, :create, :show, :edit, :update]
   end
 
-  resources :performances, only: [:new, :create, :show, :update]
+  resources :performances#, only: [:new, :create, :show, :update]
 
    # resources :categories
 
