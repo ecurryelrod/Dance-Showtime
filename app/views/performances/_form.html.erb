@@ -16,9 +16,9 @@
     <div><Strong>Select an Existing Venue: </Strong><%= f.collection_select :venue_id, Venue.all, :id, :name, {include_blank: true} %></div><br>
     <strong>- Or -</strong>
     <br><br>
+    <!-- need to figure out how to add a new venue or select a different venue in edit mode, right now can only update the existing venue which I don't want... -->
     <%= f.fields_for :venue, @venue do |venue_fields| %>
-        <div><h3>Add a New Venue:</h3></div>
-        <br>
+        <div><h3>Add a New Venue:</h3></div><br>
         <div>Venue Name: <%= venue_fields.text_field :name %></div><br>
         <div>Address Line 1: <%= venue_fields.text_field :address_1 %></div><br>
         <div>Address Line 2: <%= venue_fields.text_field :address_2 %></div><br>

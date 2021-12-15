@@ -26,8 +26,10 @@
     <%= link_to "Click here for more information about the venue", "#{@performance.venue.venue_url}", target: :_blank %><br>
     <br><br>
     <% if @performance.user == current_user %>
-        <%= link_to "Edit", edit_user_performance_path(current_user, @performance) %>
-        <%#= link_to "Delete", user_performance_path(@performance.user, @performance), method: :delete %>
+        <%= button_to "Edit", edit_user_performance_path(current_user, @performance), method: :get %>
+        <br>
+        <!-- button_to will delete object but link_to doesn't... not sure why... -->
+        <%= button_to "Delete", performance_path(@performance), method: :delete %>
     <% end %>
     <br><br>
     <%= link_to "Back", :back %>

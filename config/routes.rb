@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show] do
-    resources :performances#, only: [:new, :create, :show, :edit, :update]
+    resources :performances, only: [:new, :create, :show, :edit, :update]
   end
 
-  resources :performances#, only: [:new, :create, :show, :update]
+  resources :performances
 
    # resources :categories
 
